@@ -1,0 +1,14 @@
+/* src/app/components/botones/boton-modo-oscuro/boton-modo-oscuro.component.css */
+.boton-modo-oscuro {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .boton-modo-oscuro:hover {
+    background-color: #0056b3;
+  }

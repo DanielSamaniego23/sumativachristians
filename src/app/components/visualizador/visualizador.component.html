@@ -1,1 +1,17 @@
-<p>visualizador works!</p>
+<!-- src/app/components/visualizador/visualizador.component.html -->
+<div class="encuesta-container">
+    <div class="formulario">
+      <h2>Encuesta</h2>
+      
+      <app-email (emailChange)="onEmailChange($event)"></app-email>
+      <app-password (passwordChange)="onPasswordChange($event)"></app-password>
+      <app-texto (textoChange)="onTextoChange($event)"></app-texto>
+    </div>
+  
+    <div class="resultados">
+      <h3>Resultados</h3>
+      <p><strong>Email:</strong> {{ email }}</p>
+      <p><strong>Password:</strong> {{ password }}</p>
+      <p><strong>Texto:</strong> {{ texto }}</p>
+    </div>
+  </div>
