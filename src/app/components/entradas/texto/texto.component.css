@@ -1,0 +1,10 @@
+textarea {
+    width: 40%;
+    height: 20px;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #2d2f31;
+    color: #fff;
+  }
+  
