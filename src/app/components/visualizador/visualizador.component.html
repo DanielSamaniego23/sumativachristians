@@ -5,7 +5,7 @@
   <app-email (emailChange)="onEmailChange($event)"></app-email>
   <app-password (passwordChange)="onPasswordChange($event)"></app-password>
   <app-texto (textoChange)="onTextoChange($event)"></app-texto>
-
+  <button (click)="subirResultados()">Enviar</button>
   <!-- Botón Primario que aumenta el tamaño de fuente -->
   <app-boton-primario (fontSizeChange)="onFontSizeChange()"></app-boton-primario>
 
@@ -26,6 +26,5 @@
     <h3>Email: {{ email }}</h3>
     <h3>Contraseña: {{ password }}</h3>
     <h3>Texto: {{ texto }}</h3>
-    <button (click)="subirResultados()">Enviar</button> <!-- Botón de Enviar -->
   </div>
 </div>

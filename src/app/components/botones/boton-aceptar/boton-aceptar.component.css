@@ -1,13 +1,34 @@
 button {
-    background-color: #f5f5dc; /* Color beige */
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Bordes redondeados */
-    padding: 10px 15px; /* Espaciado interno */
-    font-size: 16px; /* Tamaño de fuente */
-    cursor: pointer; /* Cambia el cursor al pasar el mouse */
-    transition: background-color 0.3s; /* Transición suave para el color */
-  }
-  
-  button:hover {
-    background-color: #e1e1c5; /* Color beige más oscuro al pasar el mouse */
-  }
+  padding: 15px 30px; /* Tamaño uniforme */
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button {
+  background: black;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, white 1px, transparent 1px);
+  background-size: 5px 5px;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+button:hover {
+  color: #00bfff;
+  transform: scale(1.05);
+}
