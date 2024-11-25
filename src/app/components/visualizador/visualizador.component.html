@@ -1,6 +1,7 @@
-<!-- src/app/components/ visualizador/visualizador.component.html -->
+<!-- src/app/components/visualizador/visualizador.component.html -->
 
 <div>
+  
   <app-email (emailChange)="onEmailChange($event)"></app-email>
   <app-password (passwordChange)="onPasswordChange($event)"></app-password>
   <app-texto (textoChange)="onTextoChange($event)"></app-texto>
@@ -14,6 +15,9 @@
   <!-- Botón Aceptar que cambia el color del cuadro -->
   <app-boton-aceptar (acceptClick)="onAcceptClick()"></app-boton-aceptar>
 
+  <!-- Botón Cancelar que restablece el color del cuadro -->
+  <app-boton-cancelar (cancelClick)="onCancelClick()"></app-boton-cancelar>
+
   <!-- Cuadro que cambiará de color -->
   <div style="width: 100px; height: 100px; background-color: {{ boxColor }}; position: absolute; top: 20px; right: 20px;"></div>
 
@@ -22,5 +26,6 @@
     <h3>Email: {{ email }}</h3>
     <h3>Contraseña: {{ password }}</h3>
     <h3>Texto: {{ texto }}</h3>
+    <button (click)="subirResultados()">Enviar</button> <!-- Botón de Enviar -->
   </div>
 </div>

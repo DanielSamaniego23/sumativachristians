@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   template: `<button (click)="toggleDarkMode()">
                {{ isDarkMode ? 'Modo Claro' : 'Modo Oscuro' }}
              </button>`,
-  styles: ['./boton-modo-oscuro.component.css']
+  styleUrls: ['./boton-modo-oscuro.component.css'] // Asegúrate de que sea styleUrls y no styles
 })
 export class BotonModoOscuroComponent {
   isDarkMode: boolean = false;
