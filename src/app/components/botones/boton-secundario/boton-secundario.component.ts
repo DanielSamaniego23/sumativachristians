@@ -1,12 +1,17 @@
-import { Component } from '@angular/core';
+// src/app/components/botones/boton-secundario/boton-secundario.component.ts
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-boton-secundario',
   standalone: true,
-  imports: [],
   templateUrl: './boton-secundario.component.html',
-  styleUrl: './boton-secundario.component.css'
+  styleUrls: ['./boton-secundario.component.css']
 })
 export class BotonSecundarioComponent {
+  @Output() fontSizeDecrease = new EventEmitter<void>(); // Evento para disminuir el tamaño de fuente
 
+  // Método que se llama al hacer clic en el botón
+  onClick() {
+    this.fontSizeDecrease.emit(); // Emitir el evento sin parámetros
+  }
 }

@@ -1,16 +1,26 @@
-<div class="encuesta-container">
-  <div class="formulario">
-    <h2>Encuesta</h2>
-    <app-email (emailChange)="onEmailChange($event)"></app-email>
-    <app-password (passwordChange)="onPasswordChange($event)"></app-password>
-    <app-texto (textoChange)="onTextoChange($event)"></app-texto>
-    <button (click)="subirResultados()">Subir</button>
-  </div>
+<!-- src/app/components/ visualizador/visualizador.component.html -->
 
-  <div class="resultados">
-    <h3>Resultados</h3>
-    <p><strong>Email:</strong> {{ email }}</p>
-    <p><strong>Password:</strong> {{ password }}</p>
-    <p><strong>Texto:</strong> {{ texto }}</p>
+<div>
+  <app-email (emailChange)="onEmailChange($event)"></app-email>
+  <app-password (passwordChange)="onPasswordChange($event)"></app-password>
+  <app-texto (textoChange)="onTextoChange($event)"></app-texto>
+
+  <!-- Botón Primario que aumenta el tamaño de fuente -->
+  <app-boton-primario (fontSizeChange)="onFontSizeChange()"></app-boton-primario>
+
+  <!-- Botón Secundario que disminuye el tamaño de fuente -->
+  <app-boton-secundario (fontSizeDecrease)="onFontSizeDecrease()"></app-boton-secundario>
+
+  <!-- Botón Aceptar que cambia el color del cuadro -->
+  <app-boton-aceptar (acceptClick)="onAcceptClick()"></app-boton-aceptar>
+
+  <!-- Cuadro que cambiará de color -->
+  <div style="width: 100px; height: 100px; background-color: {{ boxColor }}; position: absolute; top: 20px; right: 20px;"></div>
+
+  <!-- Aquí puedes mostrar los datos ingresados -->
+  <div>
+    <h3>Email: {{ email }}</h3>
+    <h3>Contraseña: {{ password }}</h3>
+    <h3>Texto: {{ texto }}</h3>
   </div>
 </div>
