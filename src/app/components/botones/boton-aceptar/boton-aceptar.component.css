@@ -8,27 +8,38 @@ button {
   transition: all 0.3s ease;
 }
 
-button {
-  background: black;
-  color: white;
+button.mercurio {
+  background: linear-gradient(45deg, #d4d4d4, #a9a9a9);
+  color: #333;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s, transform 0.2s ease-in-out;
 }
 
-button:before {
+button.mercurio::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, white 1px, transparent 1px);
-  background-size: 5px 5px;
-  opacity: 0.3;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+  transform: rotate(45deg);
+  transition: transform 1s linear;
   z-index: 0;
 }
 
-button:hover {
-  color: #00bfff;
+button.mercurio:hover {
+  background: linear-gradient(45deg, #a9a9a9, #6e6e6e);
   transform: scale(1.05);
+}
+
+button.mercurio:hover::before {
+  transform: rotate(405deg);
 }

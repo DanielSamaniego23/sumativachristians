@@ -7,14 +7,37 @@ button {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-button {
-  background: linear-gradient(45deg, #6d5dfc, #ff5ebc, #21d4fd);
+button.venus {
+  background: linear-gradient(90deg, #ff7eb3, #ff758c);
   color: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+  padding: 15px 30px;
+  border-radius: 30px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(255, 117, 140, 0.6);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+button.venus::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+}
+
+button.venus:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255, 117, 140, 0.8);
+}
+
+button.venus:hover::before {
+  transform: translate(-50%, -50%) scale(1);
 }

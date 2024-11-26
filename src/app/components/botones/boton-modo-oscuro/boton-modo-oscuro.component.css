@@ -1,3 +1,51 @@
+button.boton-modo-oscuro {
+  background: linear-gradient(90deg, #ffcc80, #ffab40);
+  color: white;
+  font-size: 16px;
+  padding: 15px 30px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(255, 171, 64, 0.6);
+  transition: transform 0.3s ease, background 0.5s;
+}
+
+button.boton-modo-oscuro::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: rotate(0deg);
+  z-index: 0;
+  transition: transform 0.5s linear;
+}
+
+button.boton-modo-oscuro:hover {
+  transform: scale(1.1);
+  background: linear-gradient(90deg, #ffab40, #ff6b6b);
+}
+
+button.boton-modo-oscuro:hover::before {
+  transform: rotate(360deg);
+}
+/* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+body {
+  background-color: white;
+  color: black;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+  background-color: black;
+  color: white;
+}
 .button-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Tres columnas */
@@ -22,13 +70,14 @@ button {
 button:hover {
   opacity: 0.9; /* Efecto al pasar el mouse */
 }
-.app-boton-modo-oscuro {
+button {
   background-color: #343a40; /* Negro */
   color: white; /* Texto blanco */
 }
 
 /* Estilo para el ícono de luna en el botón de modo oscuro */
-.app-boton-modo-oscuro::before {
+button::before {
   content: '🌙'; /* Emoji de luna */
   margin-right: 8px; /* Espacio entre el ícono y el texto */
 }
+
