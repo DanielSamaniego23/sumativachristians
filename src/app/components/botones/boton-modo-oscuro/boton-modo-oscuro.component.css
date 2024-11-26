@@ -11,7 +11,28 @@ button.boton-modo-oscuro {
   box-shadow: 0 4px 20px rgba(255, 171, 64, 0.6);
   transition: transform 0.3s ease, background 0.5s;
 }
+/* Estilos para el modo oscuro */
+body.dark-mode {
+  background-color: #121212; /* Color de fondo oscuro */
+  color: #ffffff; /* Color de texto claro */
+}
 
+/* Opcional: Estilos para otros elementos */
+header {
+  background-color: #1f1f1f; /* Fondo del encabezado en modo oscuro */
+}
+
+button {
+  background-color: #3a3a3a; /* Fondo del botón en modo oscuro */
+  color: #ffffff; /* Color del texto del botón */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Espaciado del botón */
+  cursor: pointer; /* Cursor de mano */
+}
+
+button:hover {
+  background-color: #575757; /* Color de fondo del botón al pasar el mouse */
+}
 button.boton-modo-oscuro::before {
   content: '';
   position: absolute;

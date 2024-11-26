@@ -12,7 +12,7 @@ import { BotonSecundarioComponent } from './components/botones/boton-secundario/
   imports: [VisualizadorComponent, BotonModoOscuroComponent, BotonAceptarComponent, BotonCancelarComponent,BotonPrimarioComponent,BotonSecundarioComponent],
   template: `
   
-      <app-boton-modo-oscuro></app-boton-modo-oscuro>
+      
     <app-visualizador></app-visualizador>
   `,
   styleUrls: ['./app.component.css']

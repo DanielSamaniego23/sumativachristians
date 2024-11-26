@@ -6,6 +6,7 @@
   <app-password (passwordChange)="onPasswordChange($event)"></app-password>
   <app-texto (textoChange)="onTextoChange($event)"></app-texto>
   <button (click)="subirResultados()">Enviar</button>
+
   <!-- Botón Primario que aumenta el tamaño de fuente -->
   <app-boton-primario (fontSizeChange)="onFontSizeChange()"></app-boton-primario>
 
@@ -17,6 +18,8 @@
 
   <!-- Botón Cancelar que restablece el color del cuadro -->
   <app-boton-cancelar (cancelClick)="onCancelClick()"></app-boton-cancelar>
+
+  <app-boton-modo-oscuro ></app-boton-modo-oscuro>
 
   <!-- Cuadro que cambiará de color -->
   <div style="width: 100px; height: 100px; background-color: {{ boxColor }}; position: absolute; top: 20px; right: 20px;"></div>

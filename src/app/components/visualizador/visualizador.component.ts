@@ -72,4 +72,9 @@ export class VisualizadorComponent {
     this.currentIndex = (this.currentIndex - 1) % this.colors.length; // Retroceder al color anterior
     this.boxColor = this.currentIndex === -1 ? 'white' : this.colors[this.currentIndex]; // Cambiar al color anterior o blanco si es el primero
   }
+  isDarkMode: boolean = false;
+  toggleDarkMode() {
+    this.isDarkMode = !this.isDarkMode;
+    document.body.classList.toggle('dark-mode', this.isDarkMode);
+  }
 }
