@@ -1,12 +1,6 @@
 <!-- src/app/components/visualizador/visualizador.component.html -->
-
+<h1 class="galaxia">Evaluación Sumativa</h1>
 <div>
-  
-  <app-email (emailChange)="onEmailChange($event)"></app-email>
-  <app-password (passwordChange)="onPasswordChange($event)"></app-password>
-  <app-texto (textoChange)="onTextoChange($event)"></app-texto>
-  <button (click)="subirResultados()">Enviar</button>
-
   <!-- Botón Primario que aumenta el tamaño de fuente -->
   <app-boton-primario (fontSizeChange)="onFontSizeChange()"></app-boton-primario>
 
@@ -20,7 +14,13 @@
   <app-boton-cancelar (cancelClick)="onCancelClick()"></app-boton-cancelar>
 
   <app-boton-modo-oscuro ></app-boton-modo-oscuro>
-
+  <form>
+    <h2>Formulario Galáctico</h2>
+  <app-email (emailChange)="onEmailChange($event)"></app-email>
+  <app-password (passwordChange)="onPasswordChange($event)"></app-password>
+  <app-texto (textoChange)="onTextoChange($event)"></app-texto>
+  <button (click)="subirResultados()">Enviar</button>
+</form>
   <!-- Cuadro que cambiará de color -->
   <div style="width: 100px; height: 100px; background-color: {{ boxColor }}; position: absolute; top: 20px; right: 20px;"></div>
 

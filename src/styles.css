@@ -1,0 +1,13 @@
+/* styles.css o styles.scss */
+body.dark-mode {
+    background-color: #121212; /* Color de fondo oscuro */
+    color: #ffffff; /* Color de texto claro */
+  }
+  
+  body.dark-mode h1, 
+  body.dark-mode h2, 
+  body.dark-mode h3 {
+    color: #ffffff; /* Colores de encabezados en modo oscuro */
+  }
+  
+  /* Otros estilos específicos para el modo oscuro */

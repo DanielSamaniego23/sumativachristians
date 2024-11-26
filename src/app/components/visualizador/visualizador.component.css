@@ -49,4 +49,179 @@
     transform: scale(0.98); /* Reduce ligeramente el tamaño */
     box-shadow: 0 4px 12px rgba(0, 255, 255, 0.3); /* Reduce el brillo */
   }
-    
+  h1.galaxia {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    color: transparent;
+    background: linear-gradient(90deg, #ff7eb3, #ff758c, #ffcc80, #2bff88, #38b6ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    animation: galaxia-move 6s linear infinite;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+h1.galaxia::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+    animation: galaxia-glow 3s infinite alternate;
+    z-index: -1;
+}
+
+h1.galaxia::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 300px;
+    height: 100px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.3), transparent);
+    transform: translate(-50%, -50%) rotate(20deg);
+    animation: galaxia-sparkle 2s infinite alternate;
+    filter: blur(5px);
+}
+
+@keyframes galaxia-move {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes galaxia-glow {
+    0% {
+        transform: translateX(-50%) scale(1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateX(-50%) scale(1.5);
+        opacity: 0.2;
+    }
+}
+
+@keyframes galaxia-sparkle {
+    0% {
+        transform: translate(-50%, -50%) rotate(20deg) scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(40deg) scale(1.2);
+        opacity: 0.4;
+    }
+}
+/* Contenedor principal del formulario */
+form {
+  width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #1a1a40, #0d0d1a);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+form::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(0deg);
+  animation: spin-glow 10s linear infinite;
+  z-index: -1;
+}
+
+@keyframes spin-glow {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+/* Campos del formulario */
+form app-email,
+form app-password,
+form app-texto {
+  display: block;
+  margin-bottom: 20px;
+  padding: 12px 15px;
+  width: 100%;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+form app-email:focus,
+form app-password:focus,
+form app-texto:focus {
+  border-color: #38b6ff;
+  box-shadow: 0 0 10px #38b6ff;
+}
+
+/* Botón de enviar */
+form button {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  background: linear-gradient(90deg, #6d5dfc, #ff5ebc, #21d4fd);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(33, 212, 253, 0.3);
+}
+
+form button:hover {
+  background: linear-gradient(90deg, #21d4fd, #ff5ebc, #6d5dfc);
+  box-shadow: 0 6px 20px rgba(33, 212, 253, 0.5);
+  transform: scale(1.05);
+}
+
+/* Texto del formulario */
+form h2 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #ff7eb3, #ffcc80, #38b6ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: galaxia-text-move 5s linear infinite;
+}
+
+@keyframes galaxia-text-move {
+  0% {
+      background-position: 0% 50%;
+  }
+  100% {
+      background-position: 100% 50%;
+  }
+}
