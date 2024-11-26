@@ -10,11 +10,11 @@
   /* Variables de color dinámicas */
   body.light {
     --background-color: #ffffff;
-    --text-color: #333;
+    --text-color: #615858;
   }
   
   body.dark {
-    --background-color: #2d2f31;
+    --background-color: #0080ff;
     --text-color: #f5f5f5;
   }
   
@@ -162,7 +162,7 @@ form app-texto {
   display: block;
   margin-bottom: 20px;
   padding: 12px 15px;
-  width: 100%;
+  width: auto;
   font-size: 16px;
   font-family: 'Arial', sans-serif;
   border: 2px solid rgba(255, 255, 255, 0.2);
