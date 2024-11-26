@@ -8,11 +8,11 @@ import { BotonSecundarioComponent } from '../botones/boton-secundario/boton-secu
 import { BotonAceptarComponent } from '../botones/boton-aceptar/boton-aceptar.component';
 import { BotonCancelarComponent } from '../botones/boton-cancelar/boton-cancelar.component'; // Importar el botón cancelar
 import { BotonModoOscuroComponent } from '../botones/boton-modo-oscuro/boton-modo-oscuro.component';
-
+import { CommonModule } from '@angular/common'; // Importar CommonModule
 @Component({
   selector: 'app-visualizador',
   standalone: true,
-  imports: [EmailComponent, PasswordComponent, TextoComponent, BotonPrimarioComponent, BotonSecundarioComponent, BotonAceptarComponent, BotonCancelarComponent, BotonModoOscuroComponent],
+  imports: [CommonModule, EmailComponent, PasswordComponent, TextoComponent, BotonPrimarioComponent, BotonSecundarioComponent, BotonAceptarComponent, BotonCancelarComponent, BotonModoOscuroComponent],
   templateUrl: './visualizador.component.html',
   styleUrls: ['./visualizador.component.css']
 })
@@ -23,39 +23,69 @@ export class VisualizadorComponent {
   email: string = '';
   password: string = '';
   texto: string = '';
-  fontSize: number = 16; // Tamaño de fuente por defecto
+   // Tamaño de fuente por defecto
   boxColor: string = 'lightgray'; // Color inicial del cuadro
   colors: string[] = ['red', 'blue', 'green', 'yellow', 'orange', 'purple']; // Colores en secuencia
   currentIndex: number = 0; // Índice del color actual
-
+  emailError: string = '';
+  passwordError: string = '';
   onEmailChange(value: string) {
     this.tempEmail = value;
+    this.validateEmail();
   }
 
   onPasswordChange(value: string) {
     this.tempPassword = value;
+    this.validatePassword();
   }
 
   onTextoChange(value: string) {
     this.tempTexto = value;
   }
 
+  validateEmail() {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regex para validar el email
+    if (!emailPattern.test(this.tempEmail)) {
+      this.emailError = 'El email debe contener "@" y terminar en ".com".';
+    } else {
+      this.emailError = '';
+    }
+  }
+
+  validatePassword() {
+    const passwordPattern = /^(?=.*[!@#$%^&*])(?=.{9,})/; // Regex para validar password
+    if (!passwordPattern.test(this.tempPassword)) {
+      this.passwordError = 'La contraseña debe contener más de 8 caracteres y al menos un carácter especial.';
+    } else {
+      this.passwordError = '';
+    }
+  }
+
   subirResultados() {
-    this.email = this.tempEmail;
-    this.password = this.tempPassword;
-    this.texto = this.tempTexto;
+    this.validateEmail();
+    this.validatePassword();
+    
+    if (!this.emailError && !this.passwordError) {
+      this.email = this.tempEmail;
+      this.password = this.tempPassword;
+      this.texto = this.tempTexto;
+    }
   }
 
+  fontSize: number = 16; // Tamaño inicial
+
+  // Cambiar tamaño de fuente (incrementar)
   onFontSizeChange() {
-    this.fontSize += 2; // Incrementar el tamaño de fuente en 2px
-    document.documentElement.style.fontSize = `${this.fontSize}px`; // Cambia el tamaño de fuente de la página
+    this.fontSize += 2; // Incrementar tamaño de fuente
   }
 
+  // Cambiar tamaño de fuente (decrementar)
   onFontSizeDecrease() {
-    this.fontSize -= 2; // Disminuir el tamaño de fuente en 2px
-    if (this.fontSize < 10) this.fontSize = 10; // Limitar el tamaño mínimo
-    document.documentElement.style.fontSize = `${this.fontSize}px`; // Cambia el tamaño de fuente de la página
+    this.fontSize = this.fontSize - 2 < 10 ? 10 : this.fontSize - 2; // Evitar que el tamaño sea menor a 10px
   }
+  
+
+  
 
   // Método para cambiar el color del cuadro al hacer clic en aceptar
   onAcceptClick() {

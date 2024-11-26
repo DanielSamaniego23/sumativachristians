@@ -225,3 +225,34 @@ form h2 {
       background-position: 100% 50%;
   }
 }
+.error {
+  color: red;
+  font-size: 0.9em;
+}
+.cuadrito-container {
+  position: absolute;
+  bottom: 20px; /* Coloca el contenedor en la parte inferior */
+  left: 50%; /* Centra el contenedor horizontalmente */
+  transform: translateX(-50%); /* Centrado exacto */
+  text-align: center; /* Centra el texto dentro del contenedor */
+}
+
+.cuadrito-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  color: #21d4fd;
+  margin-bottom: 10px;
+}
+
+.cuadrito-box {
+  width: 150px; /* Aumento del tamaño */
+  height: 150px; /* Aumento del tamaño */
+  background-color: #3498db; /* Color predeterminado */
+  border-radius: 12px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  transition: all 0.3s ease; /* Transición suave para efectos */
+}
+
+.cuadrito-box:hover {
+  transform: scale(1.1); /* Efecto al pasar el mouse */
+}

@@ -1,11 +1,17 @@
 <!-- src/app/components/visualizador/visualizador.component.html -->
 <h1 class="galaxia">Evaluación Sumativa</h1>
-<div>
+<div [ngStyle]="{'font-size': fontSize + 'px'}">
   <!-- Botón Primario que aumenta el tamaño de fuente -->
-  <app-boton-primario (fontSizeChange)="onFontSizeChange()"></app-boton-primario>
+  <!-- Botón Primario que aumenta el tamaño de fuente -->
+  <app-boton-primario 
+  [ngStyle]="{'font-size': fontSize + 'px'}" 
+  (fontSizeChange)="onFontSizeChange()">
+</app-boton-primario>
 
-  <!-- Botón Secundario que disminuye el tamaño de fuente -->
-  <app-boton-secundario (fontSizeDecrease)="onFontSizeDecrease()"></app-boton-secundario>
+<!-- Botón Secundario que disminuye el tamaño de fuente -->
+<app-boton-secundario 
+  (fontSizeDecrease)="onFontSizeDecrease()">
+</app-boton-secundario>
 
   <!-- Botón Aceptar que cambia el color del cuadro -->
   <app-boton-aceptar (acceptClick)="onAcceptClick()"></app-boton-aceptar>
@@ -14,20 +20,32 @@
   <app-boton-cancelar (cancelClick)="onCancelClick()"></app-boton-cancelar>
 
   <app-boton-modo-oscuro ></app-boton-modo-oscuro>
-  <form>
-    <h2>Formulario Galáctico</h2>
-  <app-email (emailChange)="onEmailChange($event)"></app-email>
-  <app-password (passwordChange)="onPasswordChange($event)"></app-password>
-  <app-texto (textoChange)="onTextoChange($event)"></app-texto>
-  <button (click)="subirResultados()">Enviar</button>
-</form>
-  <!-- Cuadro que cambiará de color -->
-  <div style="width: 100px; height: 100px; background-color: {{ boxColor }}; position: absolute; top: 20px; right: 20px;"></div>
 
-  <!-- Aquí puedes mostrar los datos ingresados -->
-  <div>
-    <h3>Email: {{ email }}</h3>
-    <h3>Contraseña: {{ password }}</h3>
-    <h3>Texto: {{ texto }}</h3>
+  <form (ngSubmit)="subirResultados()" [ngStyle]="{'font-size': fontSize + 'px'}">
+    <app-email (emailChange)="onEmailChange($event)"></app-email>
+    <div *ngIf="emailError" class="error">{{ emailError }}</div>
+  
+    <app-password (passwordChange)="onPasswordChange($event)"></app-password>
+    <div *ngIf="passwordError" class="error">{{ passwordError }}</div>
+  
+    <app-texto (textoChange)="onTextoChange($event)"></app-texto>
+  
+    <button type="button" (click)="subirResultados()">Enviar</button>
+  </form>
+  
+  <div class="resultados" [ngStyle]="{'font-size': fontSize + 'px'}">
+    <h3>Resultados:</h3>
+    <p>Email: {{ email }}</p>
+    <p>Password: {{ password }}</p>
+    <p>Texto: {{ texto }}</p>
   </div>
+  
+  
+  <!-- Cuadro que cambiará de color -->
+  <div class="cuadrito-container">
+    <p class="cuadrito-title">CUADRITO</p>
+    <div class="cuadrito-box" style="background-color: {{ boxColor }};"></div>
+  </div>
+  
+
 </div>
